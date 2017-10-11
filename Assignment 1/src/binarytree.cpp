@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <vector>
-#include "binarytree.hpp"
+#include "../include/binarytree.hpp"
 
 using namespace std;
  
@@ -13,7 +13,8 @@ Node * newNode(int k)
 {
     Node *temp = new Node;
     temp->key = k;
-    temp->left = temp->right = NULL;
+    temp->left = NULL;
+    temp->right = NULL;
     return temp;
 }
  

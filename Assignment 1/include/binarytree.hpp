@@ -1,4 +1,8 @@
 // Binary Tree header file.
+// A O(n) solution to find LCA of two given values n1 and n2
+#include <iostream>
+#include <vector>
+using namespace std;
 
 // A Bianry Tree node
 struct Node

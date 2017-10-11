@@ -1,7 +1,6 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-
-#include "binarytree.hpp"
+#include "../libs/catch/catch.hpp"
+#include "../include/binarytree.hpp"
 
 TEST_CASE( "Checking LCA Data Type", "[lca-tests]" ){
     
@@ -18,10 +17,10 @@ TEST_CASE( "Checking LCA Data Type", "[lca-tests]" ){
     // then manipulating the data type and check with REQUIRE.
     SECTION( "Testing basic LCA answers." ) {
         
-        REQUIRE( findLCA(root, 4, 5) ==  2)
-        REQUIRE( findLCA(root, 4, 6) ==  1)
-        REQUIRE( findLCA(root, 3, 4) ==  1)
-        REQUIRE( findLCA(root, 2, 4)) ==  2)
+        REQUIRE( findLCA(root, 4, 5) ==  2);
+        REQUIRE( findLCA(root, 4, 6) ==  1);
+        REQUIRE( findLCA(root, 3, 4) ==  1);
+        REQUIRE( findLCA(root, 2, 4) ==  2);
     
     }
 }
