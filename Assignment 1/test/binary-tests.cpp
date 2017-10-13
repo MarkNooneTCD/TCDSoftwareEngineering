@@ -64,24 +64,27 @@ TEST_CASE( "Checking LCA Function", "[lca]" ){
         REQUIRE( findLCA(root, 4, 6) ==  1);
         REQUIRE( findLCA(root, 3, 4) ==  1);
         REQUIRE( findLCA(root, 2, 4) ==  2);
+
+        // With itself.
+        REQUIRE( findLCA(root, 4, 4) ==  4);
     
     }
 
     SECTION( "Basic tests for unsuccesful functionality." ) {
         
-        REQUIRE( findLCA(root, 4, 5) ==  2);
-        REQUIRE( findLCA(root, 4, 6) ==  1);
-        REQUIRE( findLCA(root, 3, 4) ==  1);
-        REQUIRE( findLCA(root, 2, 4) ==  2);
-    
+        REQUIRE( findLCA(root, 4, 54) ==  -1);
+        REQUIRE( findLCA(root, 8494, 4) ==  -1);
+
     }
 
     SECTION( "Null testing." ) {
         
-        REQUIRE( findLCA(root, 4, 5) ==  2);
-        REQUIRE( findLCA(root, 4, 6) ==  1);
-        REQUIRE( findLCA(root, 3, 4) ==  1);
-        REQUIRE( findLCA(root, 2, 4) ==  2);
+        // With known nodes in tree.
+        REQUIRE( findLCA(NULL, 4, 5) ==  -1);
+
+        // With nodes not in tree.
+        REQUIRE( findLCA(NULL, 4, 8494) ==  -1);
+        REQUIRE( findLCA(NULL, 8494, 4) ==  -1);
     
     }
 }
