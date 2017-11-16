@@ -7,8 +7,8 @@ using namespace std;
 // A Bianry Tree node
 struct Node
 {
-    int key;
-    struct Node *left, *right;
+  int key;
+  struct Node *left, *right;
 };
 
 // Utility function creates a new binary tree node with given ke
