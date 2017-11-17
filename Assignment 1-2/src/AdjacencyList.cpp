@@ -1,7 +1,9 @@
-#include<iostream>
+#include <iostream>
 #include <list>
 #include <stack>
 #include <limits.h>
+
+#include "../include/graph.hpp"
 #define INF INT_MAX
 
 class AdjListNode
