@@ -9,95 +9,95 @@
 
 Graph::Graph(int V)
 {
-    this->V = V;
-    adj = new list<AdjListNode> [V];
+    if(V > 0) {
+      this->V = V;
+      adj = new list<AdjListNode> [V];
+    } else {
+      std::cerr<< "Cannot instantiate graph with 0 vertices";
+    }
+
 }
 
 void Graph::addEdge(int u, int v, int weight)
 {
-    AdjListNode node(v, weight);
-    adj[u].push_back(node); // Add v to u's list
-}
-
-void Graph::topologicalSortUtil(int v, bool visited[], stack<int> &Stack)
-{
-    // Mark the current node as visited
-    visited[v] = true;
-
-    // Recur for all the vertices adjacent to this vertex
-    list<AdjListNode>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i)
-    {
-        AdjListNode node = *i;
-        if (!visited[node.getV()])
-            topologicalSortUtil(node.getV(), visited, Stack);
+    if(u<0 || v<0){
+      std::cerr<< "Cannot instantiate graph with 0 vertices";
+    } else {
+      AdjListNode node(v, weight);
+      adj[u].push_back(node); // Add v to u's list
     }
-
-    // Push current vertex to stack which stores topological sort
-    Stack.push(v);
 }
 
-void Graph::shortestPath(int s)
+
+bool Graph::isCyclicUtil(int v, bool visited[], bool *recStack)
 {
-    stack<int> Stack;
-    int dist[V];
-
-    // Mark all the vertices as not visited
-    bool *visited = new bool[V];
-    for (int i = 0; i < V; i++)
-        visited[i] = false;
-
-    // Call the recursive helper function to store Topological Sort
-    // starting from all vertices one by one
-    for (int i = 0; i < V; i++)
-        if (visited[i] == false)
-            topologicalSortUtil(i, visited, Stack);
-
-    // Initialize distances to all vertices as infinite and distance
-    // to source as 0
-    for (int i = 0; i < V; i++)
-        dist[i] = INF;
-    dist[s] = 0;
-
-    // Process vertices in topological order
-    while (Stack.empty() == false)
+    if(visited[v] == false)
     {
-        // Get the next vertex from topological order
-        int u = Stack.top();
-        Stack.pop();
+        // Mark the current node as visited and part of recursion stack
+        visited[v] = true;
+        recStack[v] = true;
 
-        // Update distances of all adjacent vertices
-        list<AdjListNode>::iterator i;
-        if (dist[u] != INF)
+        // Recur for all the vertices adjacent to this vertex
+        list<int>::iterator i;
+        for(i = adj[v].begin(); i != adj[v].end(); ++i)
         {
-            for (i = adj[u].begin(); i != adj[u].end(); ++i)
-                if (dist[i->getV()] > dist[u] + i->getWeight())
-                    dist[i->getV()] = dist[u] + i->getWeight();
+            if ( !visited[*i] && isCyclicUtil(*i, visited, recStack) )
+                return true;
+            else if (recStack[*i])
+                return true;
         }
-    }
 
-    // Print the calculated shortest distances
-    for (int i = 0; i < V; i++)
-        (dist[i] == INF) ? cout << "INF " : cout << dist[i] << " ";
+    }
+    recStack[v] = false;  // remove the vertex from recursion stack
+    return false;
 }
 
-bool Graph::findPath(Node *root, vector<int> &path, int k)
-{
-    // base case
-    if (root == NULL) return false;
 
+bool Graph::isCyclic()
+{
+    // Mark all the vertices as not visited and not part of recursion
+    // stack
+    bool *visited = new bool[V];
+    bool *recStack = new bool[V];
+    for(int i = 0; i < V; i++)
+    {
+        visited[i] = false;
+        recStack[i] = false;
+    }
+
+    // Call the recursive helper function to detect cycle in different
+    // DFS trees
+    for(int i = 0; i < V; i++)
+        if (isCyclicUtil(i, visited, recStack))
+            return true;
+
+    return false;
+}
+
+bool Graph::findPath(int rootKey, vector<int> &path, int k)
+{
     // Store this node in path vector. The node will be removed if
     // not in path from root to k
-    path.push_back(root->key);
+    path.push_back(rootKey);
 
     // See if the k is same as root's key
-    if (root->key == k)
+    if (rootKey == k)
         return true;
 
     // Check if k is found in left or right sub-tree
-    if ( (root->left && findPath(root->left, path, k)) ||
-         (root->right && findPath(root->right, path, k)) )
-        return true;
+    // if ( (root->left && findPath(root->left, path, k)) ||
+    //      (root->right && findPath(root->right, path, k)) )
+    //     return true;
+
+    // Recur for all the vertices adjacent to this vertex
+    list<AdjListNode>::iterator i;
+    for (i = adj[rootKey].begin(); i != adj[rootKey].end(); ++i)
+    {
+        AdjListNode node = *i;
+        if(findPath(node.getV(), path, k))
+          return true;
+    }
+
 
     // If not present in subtree rooted with root, remove root from
     // path[] and return false
@@ -105,14 +105,14 @@ bool Graph::findPath(Node *root, vector<int> &path, int k)
     return false;
 }
 
-int Graph::findLCA(Node *root, int n1, int n2)
+int Graph::findLCA(int rootKey, int n1, int n2)
 {
     // to store paths to n1 and n2 from the root
     vector<int> path1, path2;
 
     // Find paths from root to n1 and root to n1. If either n1 or n2
     // is not present, return -1
-    if ( !findPath(root, path1, n1) || !findPath(root, path2, n2))
+    if ( !findPath(rootKey, path1, n1) || !findPath(rootKey, path2, n2))
           return -1;
 
     /* Compare the paths to get the first different value */

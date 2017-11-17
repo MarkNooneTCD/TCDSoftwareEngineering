@@ -22,6 +22,13 @@ class Graph
         // function to add an edge to graph
         void addEdge(int u, int v, int weight);
 
+        // Returns true if the graph contains a cycle, else false.
+        // This function is a variation of DFS() in http://www.geeksforgeeks.org/archives/18212
+        bool isCyclic();
+
+        // This function is a variation of DFSUytil() in http://www.geeksforgeeks.org/archives/18212
+        bool isCyclicUtil();
+
         // Finds shortest paths from given source vertex
         void shortestPath(int s);
 
