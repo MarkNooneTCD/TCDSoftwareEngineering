@@ -1,12 +1,5 @@
-#include <iostream>
-#include <list>
-#include <stack>
-#include <vector>
-#include <limits.h>
-#include "../include/graph.hpp"
-
-#define INF INT_MAX
-
+#include "../include/graph.hpp";
+#include "../include/AdjacencyList.hpp";
 
 Graph::Graph(int V)
 {
@@ -111,14 +104,17 @@ bool Graph::findPathsToNode(int rootKey, vector< vector<int> >&aggregator, vecto
 
 int Graph::findLCA(int rootKey, int n1, int n2)
 {
-    if(x>V||y>V)
+    if(x>V||y>V||root>V){
         std::cerr<< "Cannot find LCA of numbers greater than graph vertices.";
         return -1;
-    if(x<0||y<0)
+    }
+    if(x<0||y<0||root<0){
         std::cerr<< "Cannot find LCA of numers lower than zero.";
         return -1;
+    }
     if(x==y)       // LCA of a node to itself is itself.
         return x;
+
 
     if(!isCyclic()){
 
@@ -175,4 +171,8 @@ int Graph::findLCA(int rootKey, int n1, int n2)
     std::cerr<< "Graph contains a cycle.";
     return -1;
 
+}
+
+void printOutGraph() {
+    std::cout<< "Printing graph below;";
 }
