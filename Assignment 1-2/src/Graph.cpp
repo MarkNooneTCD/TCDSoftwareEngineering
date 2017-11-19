@@ -1,6 +1,7 @@
-#include<iostream>
+#include <iostream>
 #include <list>
 #include <stack>
+#include <vector>
 #include <limits.h>
 #include "../include/graph.hpp"
 
@@ -74,32 +75,35 @@ bool Graph::isCyclic()
     return false;
 }
 
-bool Graph::findPath(int rootKey, vector<int> &path, int k)
+bool Graph::findPathsToNode(int rootKey, vector< vector<int> >&aggregator, vector<int>&path, int k)
 {
-    // Store this node in path vector. The node will be removed if
-    // not in path from root to k
-    path.push_back(rootKey);
+    // Push the current node to the path.
+    path.push(rootKey);
 
-    // See if the k is same as root's key
-    if (rootKey == k)
+    // See if the k is same as root's key,
+    // if so push the entire apth to the aggregator.
+    if (rootKey == k) {
+        aggregator.push(path);
         return true;
-
-    // Check if k is found in left or right sub-tree
-    // if ( (root->left && findPath(root->left, path, k)) ||
-    //      (root->right && findPath(root->right, path, k)) )
-    //     return true;
+    }
 
     // Recur for all the vertices adjacent to this vertex
     list<AdjListNode>::iterator i;
+    bool pathFound = false;
     for (i = adj[rootKey].begin(); i != adj[rootKey].end(); ++i)
     {
-        AdjListNode node = *i;
-        if(findPath(node.getV(), path, k))
-          return true;
+        AdjListNode node = *i;              // Assign node to the vallue pointed to by i.
+        pathFound = findPathsToNode(node.getV(), aggregator, path, k);
     }
 
+    // This is checked after the loop so we can scann all adjacent paths.
+    // This means that if there are more than one paths to a given node,
+    // we'll find them all. Hence why we push paths to an aggregator.
+    if(pathFound){
+      return true;
+    }
 
-    // If not present in subtree rooted with root, remove root from
+    // If no path present in subtree rooted with root, remove root from
     // path[] and return false
     path.pop_back();
     return false;
@@ -107,18 +111,39 @@ bool Graph::findPath(int rootKey, vector<int> &path, int k)
 
 int Graph::findLCA(int rootKey, int n1, int n2)
 {
-    // to store paths to n1 and n2 from the root
-    vector<int> path1, path2;
+    if(x>V||y>V)
+        std::cerr<< "Cannot find LCA of numbers greater than graph vertices.";
+        return -1;
+    if(x<0||y<0)
+        std::cerr<< "Cannot find LCA of numers lower than zero.";
+        return -1;
+    if(x==y)       // LCA of a node to itself is itself.
+        return x;
 
-    // Find paths from root to n1 and root to n1. If either n1 or n2
-    // is not present, return -1
-    if ( !findPath(rootKey, path1, n1) || !findPath(rootKey, path2, n2))
-          return -1;
+    if(!isCyclic()){
 
-    /* Compare the paths to get the first different value */
-    int i;
-    for (i = 0; i < path1.size() && i < path2.size() ; i++)
-        if (path1[i] != path2[i])
-            break;
-    return path1[i-1];
+        // Create and find the nodes linking to the target node.
+        vector<int> n1Path, n2Path;
+        vector< vector<int> > n1Agg, n2Agg;
+
+        findPathsToNode(rootkey, n1Agg, n1Path, n1);
+        findPathsToNode(rootkey, n2Agg, n2Path, n2);
+
+        // Create the vector index iterators
+        vector<int>::size_type it1;
+        vector<int>::size_type it2;
+
+        for(it1 = 0; it1 != n1Path.size(); ++it1){
+          for(it2 = 0; it2 != n2Path.size(); ++it2){
+
+
+
+          }
+        }
+
+    }
+
+    std::cerr<< "Graph contains a cycle.";
+    return -1;
+
 }
