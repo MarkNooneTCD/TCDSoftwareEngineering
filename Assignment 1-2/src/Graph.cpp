@@ -130,17 +130,46 @@ int Graph::findLCA(int rootKey, int n1, int n2)
         findPathsToNode(rootkey, n2Agg, n2Path, n2);
 
         // Create the vector index iterators
-        vector<int>::size_type it1;
-        vector<int>::size_type it2;
+        vector< vector<int> >::size_type it1;
+        vector< vector<int> >::size_type it2;
+        vector<int>::size_type it3;
+        vector<int>::size_type it4;
+
+        int bestLCA =-1, bestLCAIndex1 =-1, bestLCAIndex2 =-1;
 
         for(it1 = 0; it1 != n1Path.size(); ++it1){
+          vector<int> n1Temp = n1Agg[it1];
+
           for(it2 = 0; it2 != n2Path.size(); ++it2){
+            vector<int> n2Temp = n2Agg[it2];
 
+            for(it3 = 0; it3 != n1Temp.size(); ++it3){
+              int n1Check = n1Temp[it3];
 
+              for(it4 = 0; it4 != n2Temp.size(); ++it4){
+                int n2Check = n2Temp[it4];
+
+                // If both are equal a possible LCA has been found.
+                if(n1Check == n2Check){
+
+                  // Check to see if the possible LCA if farther
+                  // down the graph then the previously recorded one.
+                  if(it3>bestLCAIndex1 && it4>bestLCAIndex2){
+
+                    // Record the better LCA.
+                    bestLCAIndex1 = it3;
+                    bestLCAIndex2 = it4;
+                    bestLCA = n1Check;
+
+                  }
+                }
+
+              }
+            }
 
           }
         }
-
+        return bestLCA;
     }
 
     std::cerr<< "Graph contains a cycle.";
