@@ -1,0 +1,11 @@
+# Any of the build files produced from CMake.
+build/*
+
+# Any .o files that are produced from unlinked compilation.
+*.o
+
+# Used for very small debugging.
+src/main.cpp
+
+# Ignore the executable.
+a.out
