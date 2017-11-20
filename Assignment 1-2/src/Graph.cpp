@@ -6,7 +6,7 @@ Graph::Graph(int V)
       this->V = V;
       adj = new list<AdjListNode> [V];
     } else {
-      std::cerr<< "Cannot instantiate graph with 0 vertices";
+      std::cerr<< "Cannot instantiate graph with 0 vertices\n";
     }
 
 }
@@ -14,7 +14,7 @@ Graph::Graph(int V)
 void Graph::addEdge(int u, int v, int weight)
 {
     if(u<0 || v<0){
-      std::cerr<< "Cannot instantiate graph with 0 vertices";
+      std::cerr<< "Cannot instantiate graph with 0 vertices\n";
     } else {
       AdjListNode node(v, weight);
       adj[u].push_back(node); // Add v to u's list
@@ -89,7 +89,8 @@ bool Graph::findPathsToNode(int rootKey, vector< vector<int> >&aggregator, vecto
     for (i = adj[rootKey].begin(); i != adj[rootKey].end(); ++i)
     {
         AdjListNode node = *i;              // Assign node to the vallue pointed to by i.
-        pathFound = findPathsToNode(node.getV(), aggregator, path, k);
+        if(findPathsToNode(node.getV(), aggregator, path, k) && !pathFound)
+          pathFound = true;
 
     }
 
@@ -110,11 +111,11 @@ bool Graph::findPathsToNode(int rootKey, vector< vector<int> >&aggregator, vecto
 int Graph::findLCA(int rootKey, int n1, int n2)
 {
     if(n1>V||n2>V||rootKey>V){
-        std::cerr<< "Cannot find LCA of numbers greater than graph vertices.";
+        std::cerr<< "Cannot find LCA of numbers greater than graph vertices.\n";
         return -1;
     }
     if(n1<0||n1<0||rootKey<0){
-        std::cerr<< "Cannot find LCA of numers lower than zero.";
+        std::cerr<< "Cannot find LCA of numers lower than zero.\n";
         return -1;
     }
     if(n1==n2)       // LCA of a node to itself is itself.
@@ -123,7 +124,7 @@ int Graph::findLCA(int rootKey, int n1, int n2)
 
     if(!isCyclic()){
 
-        std::cout<< "Is not cyclic\n";
+        // std::cout<< "Is not cyclic\n";
         // Create and find the nodes linking to the target node.
         vector<int> n1Path, n2Path;
         vector< vector<int> > n1Agg, n2Agg;

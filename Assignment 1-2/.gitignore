@@ -2,5 +2,10 @@
 build/*
 
 # Any .o files that are produced from unlinked compilation.
-*.o 
+*.o
 
+# Used for very small debugging.
+src/main.cpp
+
+# Ignore the executable.
+a.out

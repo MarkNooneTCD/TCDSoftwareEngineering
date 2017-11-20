@@ -10,7 +10,7 @@ TEST_CASE( "Checking Find Path Function", "[path]" ){
     vector<int> path1;
 
     int nodes = 7;
-    Graph g = new Graph(nodes);
+    Graph g(nodes);
     int root = 0;
 
     // Add Edges
@@ -35,8 +35,8 @@ TEST_CASE( "Checking Find Path Function", "[path]" ){
     SECTION( "Basic tests for non-present paths." ) {
 
         // With two non existing numbers.
-        REQUIRE( g.findPathsToNode(root, path1, 34) ==  false);
-        REQUIRE( g.findPathsToNode(root, path1, 67383) ==  false);
+        REQUIRE( g.findPathsToNode(root, agg1, path1, 34) ==  false);
+        REQUIRE( g.findPathsToNode(root, agg1, path1, 67383) ==  false);
 
     }
 }
@@ -49,8 +49,8 @@ TEST_CASE( "Testing Acyclic functions", "[acyclic]" ){
     int nodes = 7;
     int root = 0;
 
-    Graph nonCyclic = new Graph(nodes);
-    Graph cyclic = new Graph(nodes);
+    Graph nonCyclic(nodes);
+    Graph cyclic(nodes);
 
     // Add Edges to Non-Cylcic Graph.
     nonCyclic.addEdge(0, 1, 1);
@@ -82,7 +82,7 @@ TEST_CASE( "Checking LCA Function Simple", "[lca-simple]" ){
 
     int nodes = 7;
     int root = 0;
-    Graph g = new Graph(nodes);
+    Graph g(nodes);
 
     // Add Edges
     g.addEdge(0, 1, 1);
@@ -96,10 +96,10 @@ TEST_CASE( "Checking LCA Function Simple", "[lca-simple]" ){
     // then manipulating the data type and check with REQUIRE.
     SECTION( "Basic tests for correct functionality." ) {
 
-        REQUIRE( g.findLCA(root, 4, 5) ==  2);
-        REQUIRE( g.findLCA(root, 4, 6) ==  1);
+        REQUIRE( g.findLCA(root, 4, 5) ==  0);
+        REQUIRE( g.findLCA(root, 4, 6) ==  0);
         REQUIRE( g.findLCA(root, 3, 4) ==  1);
-        REQUIRE( g.findLCA(root, 2, 4) ==  2);
+        REQUIRE( g.findLCA(root, 2, 4) ==  0);
 
         // With itself.
         REQUIRE( g.findLCA(root, 4, 4) ==  4);
@@ -154,7 +154,8 @@ TEST_CASE( "Checking LCA Function For DAG", "[lca-complex]" ){
 
     // Let us create a Direct Acyclic Graph
     int nodes = 14;
-    Graph g = new Graph(nodes);
+    int root = 0;
+    Graph g(nodes);
 
     // Add Edges
     g.addEdge(0, 1, 1);

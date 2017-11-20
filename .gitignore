@@ -1,5 +1,2 @@
 # Any IDE files
 .vscode
-
-# Used for very small debugging.
-main.cpp
