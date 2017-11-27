@@ -1,2 +1,5 @@
 # Any IDE files
 .vscode
+
+# Any node modules.
+node_modules

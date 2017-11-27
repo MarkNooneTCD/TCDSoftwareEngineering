@@ -1,0 +1,22 @@
+{
+  "name": "git-hub-server",
+  "version": "0.0.1",
+  "description": "This is the node js server that will be used to fetch all Github user information",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/MarkNooneTCD/TCDSoftwareEngineering"
+  },
+  "keywords": [
+    "git"
+  ],
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "author": "Mark Noone",
+  "license": "UNLICENSED"
+}
