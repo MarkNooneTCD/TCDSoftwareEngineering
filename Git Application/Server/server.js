@@ -15,14 +15,17 @@ var APIrouter = express.Router();
 
 // Create Routes for Web Router
 router.get('/', webEndpoints.index);
+router.get('/user', webEndpoints.profile);
 
 // Register all our routes with a simple /
 app.use('/', router);
+
+// Allow access to public folder
 app.use(express.static(__dirname + '/public'));
 
 // Create Routes for API router
 APIrouter.get('/', api.test);
-
+APIrouter.get('/user', api.user);
 // Register all API calls with /api
 app.use('/api', APIrouter);
 

@@ -7,6 +7,54 @@ body {
   height: 80vh;
 }
 
+.main-nav {
+  background-color: #2f353e;
+  height: 55px;
+}
+
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.location-string {
+  font-size: 14px;
+  margin-left: 2vw;
+  color: #2f353e;
+}
+
+.sub-section-header {
+  color: #c0c0c0;
+  font-weight: 500;
+}
+
+.sub-section-text {
+  color: #2f353e;
+  font-weight: 500;
+}
+
+.sub-menu-link {
+  text-decoration: none;
+  color: #c0c0c0;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.sub-menu-link:hover {
+  text-decoration: none;
+  color: #3cdc64;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.sub-menu-link:active {
+  text-decoration: none;
+  color: #3cdc64;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
 .main-banner-heading {
   color: white;
   font-size: 37px;
