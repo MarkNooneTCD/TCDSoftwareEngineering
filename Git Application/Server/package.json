@@ -15,7 +15,9 @@
     "git"
   ],
   "dependencies": {
-    "express": "^4.16.2"
+    "bootstrap": "^4.0.0-beta.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5"
   },
   "author": "Mark Noone",
   "license": "UNLICENSED"

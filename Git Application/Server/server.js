@@ -18,6 +18,7 @@ router.get('/', webEndpoints.index);
 
 // Register all our routes with a simple /
 app.use('/', router);
+app.use(express.static(__dirname + '/public'));
 
 // Create Routes for API router
 APIrouter.get('/', api.test);
