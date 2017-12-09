@@ -11,12 +11,14 @@ body {
   color: white;
   font-size: 37px;
   font-weight: 500;
+  width: 550px;
 }
 
 .main-banner-text {
   color: white;
   font-size: 14px;
   margin-top: 40px;
+  width: 600px;
 }
 
 .login-button {
@@ -35,6 +37,21 @@ body {
   padding-bottom: 10px;
 }
 
+.nav-links-greyed {
+  text-decoration: none;
+  color: #c0c0c0;
+  font-size: 14px;
+  margin-top:30px;
+  margin-bottom: 15px;
+  margin-left: 1vw;
+  margin-right: 2vw;
+}
+
+.nav-links-greyed:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .logo-text {
   color: white;
   font-size: 18px;
@@ -42,4 +59,9 @@ body {
   letter-spacing: 0.5px;
   margin-top:15px;
   margin-bottom: 15px;
+}
+
+.section-header {
+  color: #2f353e;
+  margin-top: 10vh;
 }
