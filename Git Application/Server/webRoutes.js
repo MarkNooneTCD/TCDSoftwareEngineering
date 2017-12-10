@@ -3,6 +3,7 @@ exports.index = function(req, res) {
 };
 
 exports.profile = function(req, res) {
+    console.log(req.cookies);
     res.sendfile('./public/profile/index.html');
 };
 
@@ -12,4 +13,8 @@ exports.repos = function(req, res) {
 
 exports.repo = function(req, res) {
     res.sendfile('./public/repository/index.html');
+};
+
+exports.githubCallback = function(req, res) {
+    // res.sendfile('./public/repository/index.html');
 };
