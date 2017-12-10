@@ -104,6 +104,16 @@ body {
 .login-button-text {
   margin-left: 20px;
   margin-right: 10px;
+  color: white;
+  decoration: none;
+}
+
+.login-button-text:hover {
+  margin-left: 20px;
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+
 }
 
 .nav-links-greyed {
