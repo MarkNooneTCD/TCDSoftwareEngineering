@@ -16,6 +16,8 @@ var APIrouter = express.Router();
 // Create Routes for Web Router
 router.get('/', webEndpoints.index);
 router.get('/user', webEndpoints.profile);
+router.get('/repos', webEndpoints.repos);
+router.get('/repo', webEndpoints.repo);
 
 // Register all our routes with a simple /
 app.use('/', router);

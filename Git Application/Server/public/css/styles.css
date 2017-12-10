@@ -55,6 +55,21 @@ body {
   margin-right: 2vw;
 }
 
+.page-header {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+.repository-info-heading {
+  margin-left: 40px;
+}
+
+.repo-label {
+  color: #a3a3a3;
+  margin-right: 10px;
+}
+
 .main-banner-heading {
   color: white;
   font-size: 37px;
