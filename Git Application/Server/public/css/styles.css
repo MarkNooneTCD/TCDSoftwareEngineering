@@ -70,6 +70,10 @@ body {
   margin-right: 10px;
 }
 
+.repo-information {
+  margin-bottom: 3vh;
+}
+
 .main-banner-heading {
   color: white;
   font-size: 37px;
