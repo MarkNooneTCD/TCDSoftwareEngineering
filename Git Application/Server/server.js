@@ -18,7 +18,18 @@ var APIrouter = express.Router();
 
 // Create Routes for API router
 APIrouter.get('/', api.test);
-APIrouter.get('/user', api.user);
+APIrouter.get('/user/:userId', api.user);
+APIrouter.get('/repo/:userId/:repoId', api.repo);
+APIrouter.get('/repos/:userId', api.repos);
+
+// Authentication check
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
 
 // Create Routes for Web Router
 router.get('/', webEndpoints.index);
