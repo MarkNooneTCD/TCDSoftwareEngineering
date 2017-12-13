@@ -49,7 +49,7 @@ router.get('/auth/github/callback',
     console.log("Endpoint Callback: "+req.user.accessToken);
     var hour = 3600000;
     res.cookie('accessToken', req.user.accessToken, {maxAge : 14 * 24 * hour, httpOnly: false});
-    res.status(200).redirect("/user")/*.send({ user: req.user, token: req.user.accessToken })*/;
+    res.status(200).redirect("/user");
   });
 
 // Configure Our Passport Github Strategy
