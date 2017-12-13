@@ -18,6 +18,17 @@ body {
   border-radius: 50%;
 }
 
+.follow-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.follow-username {
+  font-size: 14px;
+  color: #2f353e;
+}
+
 .location-string {
   font-size: 14px;
   margin-left: 2vw;
@@ -39,6 +50,7 @@ body {
   color: #c0c0c0;
   margin-left: 2vw;
   margin-right: 2vw;
+  cursor: pointer;
 }
 
 .sub-menu-link:hover {
@@ -46,6 +58,7 @@ body {
   color: #3cdc64;
   margin-left: 2vw;
   margin-right: 2vw;
+  cursor: pointer;
 }
 
 .sub-menu-link:active {

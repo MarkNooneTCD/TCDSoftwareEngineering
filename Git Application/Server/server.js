@@ -21,9 +21,14 @@ APIrouter.get('/', api.test);
 APIrouter.get('/user/:username', api.user);
 APIrouter.get('/repo/:username/:repoName', api.repo);
 APIrouter.get('/repos/:username', api.repos);
+APIrouter.get('/followers/:username', api.followers);
+APIrouter.get('/following/:username', api.following);
+
+// Authorized api calls only
 APIrouter.get('/authorized/user/:authToken', api.authUser);
 APIrouter.get('/authorized/repo/:username/:repoName/:authToken', api.authRepo);
 APIrouter.get('/authorized/repos/:authToken', api.authRepos);
+
 
 
 // Authentication check

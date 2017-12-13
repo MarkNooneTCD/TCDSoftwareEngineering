@@ -35,6 +35,24 @@ exports.repos = function(req, res) {
     });
 }
 
+exports.followers = function(req, res) {
+  const urlRepos = "https://api.github.com/users/" + req.params.username + "/followers" ;
+  axios.get(urlRepos)
+    .then(response => {
+      // console.log( response.data );
+      res.json(response.data);
+    });
+};
+
+exports.following = function(req, res) {
+  const urlRepos = "https://api.github.com/users/" + req.params.username + "/following" ;
+  axios.get(urlRepos)
+    .then(response => {
+      // console.log( response.data );
+      res.json(response.data);
+    });
+};
+
 // Authorized endpoint Calls (Needed for private repositories.)
 
 exports.authUser = function(req, res) {

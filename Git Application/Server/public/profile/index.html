@@ -79,7 +79,7 @@
       <div class="container">
         <div class="row justify-content-center" >
           <div class="col-lg-12" >
-            <img class="profile-picture" src="https://dummyimage.com/600x400/000/fff" />
+            <img class="profile-picture" id="github-profile-pic" src="https://dummyimage.com/600x400/000/fff" />
           </div>
         </div>
         <div class="row justify-content-center" style="margin-top:20px;">
@@ -98,7 +98,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
-            <h5 id="github-name">Emma Barker <span class="location-string"><span style="margin-right: 5px;"<i class="fa fa-location-arrow" aria-hidden="true"></i></span>Dublin, Ireland</span></h5>
+            <h5> <span id="github-username">Emma Barker</span> <span class="location-string"><span style="margin-right: 5px;"<i class="fa fa-location-arrow" aria-hidden="true"></i></span><span id="github-location">Dublin, Ireland</span></span></h5>
           </div>
         </div>
         <div class="row" style="margin-top: 40px;">
@@ -111,7 +111,7 @@
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <p class="sub-section-text">Barker Incorporated</p>
+            <p class="sub-section-text" id="github-company">Barker Incorporated</p>
           </div>
         </div>
         <div class="row">
@@ -124,7 +124,7 @@
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <p class="sub-section-text">www.github.com/BarkerBarks</p>
+            <p class="sub-section-text" id="github-url">www.github.com/BarkerBarks</p>
           </div>
         </div>
         <div class="row">
@@ -137,7 +137,7 @@
         </div>
         <div class="row">
           <div class="col-lg-9">
-            <p class="sub-section-text">
+            <p class="sub-section-text" id="github-bio">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum et est vel consectetur.
               Maecenas at arcu quis eros scelerisque aliquet ut sed nisi. Nullam sem lacus, luctus et vulputate
               eget, rhoncus sollicitudin ante. Etiam imperdiet diam ut sem euismod congue. Maecenas semper,
@@ -157,15 +157,30 @@
   <!-- The Sub navigation menu -->
   <div class="row justify-content-center" style="margin-top: 4vh;">
     <div class="container">
-      <div class="row">
-        <a href="#" class="sub-menu-link">Followers</a>
-        <a href="#" class="sub-menu-link">Following</a>
+      <div class="row" style="margin-bottom: -20px;">
+        <p class="sub-menu-link" id="followers" onclick="showSubMenu('followers')">Followers</p>
+        <p class="sub-menu-link" id="following" onclick="showSubMenu('following')">Following</p>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <hr />
         </div>
       </div>
+
+      <div class="row" id="sub-menu-contents">
+
+        <!-- Template for one follower/following person
+        <div class="col-lg-2" style="margin-top: 20px;">
+          <div class="row justify-content-center">
+            <img class="follow-picture" src="https://dummyimage.com/600x400/000/fff" />
+          </div>
+          <div class="row justify-content-center" style="margin-top: 10px;">
+            <p class="follow-username">MarkNooneTCD</p>
+          </div>
+        </div> -->
+
+      </div>
+
     </div>
   </div>
 
