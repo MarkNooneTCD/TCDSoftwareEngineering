@@ -1,7 +1,19 @@
 $(document).ready(function() {
   console.log(getCookie("accessToken"));
+  hideLoader();
   $("#profile-tag").click(function() {alert("Hello, users!");});
 });
+
+function hideLoader(){
+  document.getElementById("loading").style.display = 'none';
+  document.body.style.backgroundColor = "white";
+  document.getElementById("app").style.display = 'block';
+}
+function showLoader(){
+  document.getElementById("app").style.display = 'none';
+  document.body.style.backgroundColor = "#2f353e";
+  document.getElementById("loading").style.display = 'block';
+}
 
 function getCookie(name) {
   var getCookieValues = function(cookie) {

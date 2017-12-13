@@ -58,7 +58,6 @@ exports.authUser = function(req, res) {
 }
 
 exports.authRepo = function(req, res) {
-  const urlRepo = "https://api.github.com/repos/" + req.params.username + "/" +req.params.repoName;
   var options = {
     method: 'GET',
     url: 'https://api.github.com/repos/' + req.params.username + "/" +req.params.repoName,

@@ -13,7 +13,9 @@
         integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/styles.css">
+
 
   <!-- Bootstrap javascript imports -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -30,8 +32,26 @@
 
 <body>
 
+  <!-- Loading Icon -->
+  <div id="loading">
+    <div class="container-load-icon">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <div class="container" style="margin-top: 200px;">
+      <div class="row justify-content-center">
+        <h5 style="font-size: 16px; color: white;">Loading ...</h5>
+      </div>
+    </div>
+  </div>
+
 <!-- Page Navigation -->
-<div class="container-fluid main-nav">
+<div class="container-fluid main-nav" id="app">
   <div class="row">
     <div class="col-lg-1 offset-lg-1" >
       <h4 class="logo-text">Git Grapher</h4>
@@ -78,7 +98,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
-            <h5>Emma Barker <span class="location-string"><span style="margin-right: 5px;"<i class="fa fa-location-arrow" aria-hidden="true"></i></span>Dublin, Ireland</span></h5>
+            <h5 id="github-name">Emma Barker <span class="location-string"><span style="margin-right: 5px;"<i class="fa fa-location-arrow" aria-hidden="true"></i></span>Dublin, Ireland</span></h5>
           </div>
         </div>
         <div class="row" style="margin-top: 40px;">
