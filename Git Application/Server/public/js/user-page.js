@@ -1,8 +1,9 @@
 $(document).ready(function() {
   console.log(getCookie("accessToken"));
-  hideLoader();
-  $("#profile-tag").click(function() {alert("Hello, users!");});
+  showLoader();
 });
+
+setTimeout(hideLoader, 5000);
 
 function hideLoader(){
   document.getElementById("loading").style.display = 'none';
@@ -28,7 +29,6 @@ function getCookie(name) {
 
 	var cookies = document.cookie.split(';');
 	var cookieValue = cookies.map(getCookieValues)[cookies.map(getCookieNames).indexOf(name)];
-
 	return (cookieValue === undefined) ? null : cookieValue;
 
 }
