@@ -18,9 +18,13 @@ var APIrouter = express.Router();
 
 // Create Routes for API router
 APIrouter.get('/', api.test);
-APIrouter.get('/user/:userId', api.user);
-APIrouter.get('/repo/:userId/:repoId', api.repo);
-APIrouter.get('/repos/:userId', api.repos);
+APIrouter.get('/user/:username', api.user);
+APIrouter.get('/repo/:username/:repoName', api.repo);
+APIrouter.get('/repos/:username', api.repos);
+APIrouter.get('/authorized/user/:authToken', api.authUser);
+APIrouter.get('/authorized/repo/:username/:repoName/:authToken', api.authRepo);
+APIrouter.get('/authorized/repos/:authToken', api.authRepos);
+
 
 // Authentication check
 function loggedIn(req, res, next) {
