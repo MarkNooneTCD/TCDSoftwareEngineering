@@ -46,9 +46,10 @@ router.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     // console.log("Got to the callback");
-    console.log(req.user.accessToken);
-    res.cookie('accessToken', req.user.accessToken, {maxAge : 9999});
-    res.redirect('/user');
+    console.log("Endpoint Callback: "+req.user.accessToken);
+    var hour = 3600000;
+    res.cookie('accessToken', req.user.accessToken, {maxAge : 14 * 24 * hour, httpOnly: false});
+    res.status(200).redirect("/user")/*.send({ user: req.user, token: req.user.accessToken })*/;
   });
 
 // Configure Our Passport Github Strategy
@@ -58,7 +59,7 @@ passport.use(new GithubStrategy({
   callbackURL: "http://localhost:3000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(accessToken);
+    console.log("Strategy Call: "+accessToken);
     process.nextTick(function () {
       return done(null, {accessToken:accessToken, refreshToken:refreshToken, profile:profile});
     });
@@ -75,6 +76,11 @@ passport.deserializeUser(function(obj, done) {
 
 // Make Our App configurations
 app.use(cookieParser());
+app.use(function(req, res, next) {
+      res.header('Access-Control-Allow-Origin', req.headers.origin);
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+ });
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
