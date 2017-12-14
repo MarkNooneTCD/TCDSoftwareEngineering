@@ -39,18 +39,24 @@ function initApp(){
       }
       console.log(followerArray);
       localStorage && (localStorage.followerArray = JSON.stringify(followerArray));
-    });
+    })
+    .then(function(){
 
-    var followingReq = $.get(followingUrl, function(followingRes) {
-      var followingKeys= Object.keys(followingRes);
-      var followingArray = [];
-      for(var key in followingKeys){
-        var following = followingRes[key];
-        var tmp = { profile_url: following.avatar_url, username: following.login };
-        followingArray.push(tmp);
-      }
-      console.log(followingArray);
-      localStorage && (localStorage.followingArray = JSON.stringify(followingArray));
+      var followingReq = $.get(followingUrl, function(followingRes) {
+        var followingKeys= Object.keys(followingRes);
+        var followingArray = [];
+        for(var key in followingKeys){
+          var following = followingRes[key];
+          var tmp = { profile_url: following.avatar_url, username: following.login };
+          followingArray.push(tmp);
+        }
+        console.log(followingArray);
+        localStorage && (localStorage.followingArray = JSON.stringify(followingArray));
+      }).then(function(){
+        showSubMenu("followers");
+        showApp();
+      });
+
     });
 
   })/*
@@ -69,7 +75,6 @@ function insertData(data) {
   document.getElementById("github-location").innerHTML = data.location;
   // Github ID Not Included
   // setTimeout(showApp,1000); // Allows The User to actually see the animation.
-  showSubMenu("followers");
   document.cookie = "username=" + data.username;
   showApp();
 }
