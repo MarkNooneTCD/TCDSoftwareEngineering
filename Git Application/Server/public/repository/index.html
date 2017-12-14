@@ -31,8 +31,26 @@
 
 <body>
 
+  <!-- Loading Icon -->
+  <div id="loading">
+    <div class="container-load-icon">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <div class="container" style="margin-top: 200px;">
+      <div class="row justify-content-center">
+        <h5 style="font-size: 16px; color: white;">Loading ...</h5>
+      </div>
+    </div>
+  </div>
+
   <!-- Page Navigation -->
-  <div class="container-fluid main-nav">
+  <div class="container-fluid main-nav" id="app">
     <div class="row">
       <div class="col-lg-1 offset-lg-1" >
         <h4 class="logo-text">Git Grapher</h4>
@@ -47,12 +65,12 @@
     </div>
 
     <!-- Page Header -->
-    <div class="row" style="margin-top: 6vh;">
+    <div class="row" style="margin-top: 6vh;" >
       <div class="col-lg-2 offset-lg-2">
-        <h3 class="page-header" id="profile-tag">Repo Name</h3>
+        <h3 class="page-header" id="repo-name">Repo Name</h3>
       </div>
       <div class="col-lg-2" style="margin-top:10px;">
-        <h6 style="font-size: 14px;"><span class="repo-label">ID:</span>73893794</h6>
+        <h6 style="font-size: 14px;"><span class="repo-label" id="repo-id">ID:</span>73893794</h6>
       </div>
     </div>
 
@@ -71,7 +89,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-lg-11">
-              <p>Emma Barker</p>
+              <p id="repo-author">Emma Barker</p>
             </div>
           </div>
         </div>
@@ -88,7 +106,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-lg-11">
-              <p>www.github.com/BarkerBants/MyRepo</p>
+              <p id="repo-url">www.github.com/BarkerBants/MyRepo</p>
             </div>
           </div>
         </div>
@@ -105,7 +123,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-lg-11">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum et est vel consectetur. Maecenas at arcu quis eros scelerisque aliquet ut sed nisi.
+              <p id="repo-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum et est vel consectetur. Maecenas at arcu quis eros scelerisque aliquet ut sed nisi.
 Nullam sem lacus, luctus et vulputate eget, rhoncus sollicitudin ante. Etiam imperdiet diam ut sem euismod congue. Maecenas semper, sem ac tincidunt
 bibendum, lectus lacus tincidunt arcu, eu pharetra lorem massa sed nisl. Vestibulum iaculis non felis sed commodo. Nulla mattis ornare sollicitudin.
 Proin auctor consectetur pellentesque. Vivamus sodales suscipit massa et sagittis. Integer eget eros elementum, commodo metus eu, vestibulum nibh.

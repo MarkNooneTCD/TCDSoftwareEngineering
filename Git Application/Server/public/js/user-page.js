@@ -70,6 +70,7 @@ function insertData(data) {
   // Github ID Not Included
   // setTimeout(showApp,1000); // Allows The User to actually see the animation.
   showSubMenu("followers");
+  document.cookie = "username=" + data.username;
   showApp();
 }
 

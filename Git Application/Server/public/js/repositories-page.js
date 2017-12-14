@@ -23,13 +23,16 @@ function insertData(jsonRepoArray){
 
   while(i < jsonRepoArray.length){
     dataInjectionHtml += '<div class="row"><div class="col-lg-12"><hr /></div></div>' +
-                      '<div class="row" style="margin-top: 1vh; margin-bottom: 1vh;"><div class="col-lg-3 repository-info-heading"><h6>'+
+                      '<div class="row repo-row" style="margin-top: 1vh; margin-bottom: 1vh;"><div class="col-lg-4 repository-info-heading"><h6>'+
                       jsonRepoArray[i].name +
                       '</h6></div><div class="col-lg-2 "><h6><span class="repo-label">ID:</span>'+
                       jsonRepoArray[i].id +
-                      '</h6></div><div class="col-lg-6"><h6><span class="repo-label">Last Updated:</span>'+
+                      '</h6></div><div class="col-lg-5"><h6><span class="repo-label">Last Updated:</span>'+
                       jsonRepoArray[i].updated_at +
-                      '</h6></div></div></div>';
+                      '<a href="/repo?repo_name=' +
+                      jsonRepoArray[i].name +
+                      '"><i class="fa fa-lg fa-chevron-right" style="position:relative; left: 100px; color: #19B5FE;"aria-hidden="true">'
+                      +'</i></a></h6></div></div></div>';
     i++;
   }
   // debugger;

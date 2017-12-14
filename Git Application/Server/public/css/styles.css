@@ -78,6 +78,10 @@ body {
   margin-left: 40px;
 }
 
+/*.repo-row {
+  cursor:pointer;
+}*/
+
 .repo-label {
   color: #a3a3a3;
   margin-right: 10px;
