@@ -101,7 +101,7 @@ function destroyChildren(id) {
 function showSubMenu(type){
   destroyChildren("sub-menu-contents");
   var id="";
-  var subMenuContent = "" /*fillSubMenuTemplate("MarkNooneTCD", "https://dummyimage.com/600x400/000/fff")*/;
+  var subMenuContent = "";
   if(type == "followers") {
     if (localStorage && 'followerArray' in localStorage) {
       var array = JSON.parse(localStorage.followerArray);
