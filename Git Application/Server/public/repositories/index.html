@@ -13,6 +13,7 @@
         integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Bootstrap javascript imports -->
@@ -31,8 +32,26 @@
 
 <body>
 
+  <!-- Loading Icon -->
+  <div id="loading">
+    <div class="container-load-icon">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <div class="container" style="margin-top: 200px;">
+      <div class="row justify-content-center">
+        <h5 style="font-size: 16px; color: white;">Loading ...</h5>
+      </div>
+    </div>
+  </div>
+
   <!-- Page Navigation -->
-  <div class="container-fluid main-nav">
+  <div class="container-fluid main-nav" id="app">
     <div class="row">
       <div class="col-lg-1 offset-lg-1" >
         <h4 class="logo-text">Git Grapher</h4>
@@ -55,35 +74,12 @@
 
     <!-- Repository Listing Container -->
     <div class="row">
-      <div class="container">
+      <div class="container" style="margin-bottom: 100px;">
 
         <!-- Individual Repo Container -->
-        <div>
-          <!-- Line -->
-          <div class="row">
-            <div class="col-lg-12">
-              <hr />
-            </div>
-          </div>
-
+        <div id="data-injection">
           <!-- Repo Information -->
-          <div class="row" style="margin-top: 1vh; margin-bottom: 1vh;">
-            <div class="col-lg-3 repository-info-heading">
-              <h6>Repository Name</h6>
-            </div>
-            <div class="col-lg-2 ">
-              <h6><span class="repo-label">ID:</span>87326283</h6>
-            </div>
-            <div class="col-lg-3">
-              <h6><span class="repo-label">Created On:</span>08-11-1996 21:09</h6>
-            </div>
-            <div class="col-lg-3">
-              <h6><span class="repo-label">Last Updated</span>02-07-2015 13:56</h6>
-            </div>
-          </div>
         </div>
-
-      </div>
     </div>
 
 </body>
