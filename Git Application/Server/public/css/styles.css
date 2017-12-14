@@ -7,6 +7,14 @@ body {
   height: 80vh;
 }
 
+.no-decoration {
+  text-decoration:none;
+}
+
+.no-decoration:hover {
+  text-decoration: none;
+}
+
 .main-nav {
   background-color: #2f353e;
   height: 55px;
