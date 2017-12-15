@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/custom-d3.css">
 
   <!-- Bootstrap javascript imports -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -24,6 +25,9 @@
           crossorigin="anonymous"></script>
   <!-- Font Awesome CDN -->
   <script src="https://use.fontawesome.com/9bef4558e0.js"></script>
+
+  <!-- D3 Framework Import -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 
   <!-- Custom Javascript -->
   <script type="text/javascript" src="js/repo-page.js"></script>
@@ -137,9 +141,8 @@ Proin sit amet leo ut lacus dictum luctus sit amet id augue. Suspendisse sceleri
         <div class="row justify-content-center" style="margin-top: 8vh;">
           <div class="container">
             <div class="row">
-              <a href="#" class="sub-menu-link">Collaborators</a>
-              <a href="#" class="sub-menu-link">Logs</a>
-              <a href="#" class="sub-menu-link">Commits</a>
+              <a class="sub-menu-link"  onclick="showSubMenu('commit-percent')"id="commit-percent">% of Contribution</a>
+              <a class="sub-menu-link" onclick="showSubMenu('commit-freq')" id="commit-freq">Contribution frequency</a>
             </div>
             <div class="row">
               <div class="col-lg-12">
@@ -147,9 +150,10 @@ Proin sit amet leo ut lacus dictum luctus sit amet id augue. Suspendisse sceleri
               </div>
             </div>
 
-            <div class="row" id="sub-menu-contents">
+            <div class="row justify-content-center" id="sub-menu-contents">
 
-          </div>
+            </div>
+
         </div>
 
       </div>

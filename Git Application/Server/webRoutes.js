@@ -19,6 +19,10 @@ exports.connectedUser = function(req, res) {
     res.sendfile('./public/connected-user/index.html');
 };
 
+exports.commitFreq = function(req, res) {
+    res.sendfile('./public/commit-percentage/index.html');
+};
+
 exports.githubCallback = function(req, res) {
     // res.sendfile('./public/repository/index.html');
 };
