@@ -47,9 +47,17 @@ function destroyChildren(id) {
 function showSubMenu(type){
   destroyChildren("sub-menu-contents");
 
+  var parameters = location.search.substring(1).split("&");
+  var temp = parameters[0].split("=");
+  var l = unescape(temp[1]);
+
   var subMenuContent = ""
-  var barChartIframe = '<iframe src="http://localhost:3000/commits" width="960" height="600"></iframe>';
-  var heatMapIframe = '<iframe src="http://localhost:3000/commit-heatmap" width="960" height="600"></iframe>';
+  var barChartIframe = '<iframe src="http://localhost:3000/commits?repoName=' +
+  l +
+  '" width="960" height="600"></iframe>';
+  var heatMapIframe = '<iframe src="http://localhost:3000/commit-heatmap?repoName=' +
+  l +
+  '" width="960" height="600"></iframe>';
 
   if(type == "commit-percent"){
     subMenuContent = barChartIframe;
