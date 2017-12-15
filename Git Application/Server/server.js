@@ -28,6 +28,7 @@ APIrouter.get('/following/:username', api.following);
 APIrouter.get('/authorized/user/:authToken', api.authUser);
 APIrouter.get('/authorized/repo/:username/:repoName/:authToken', api.authRepo);
 APIrouter.get('/authorized/repo/:username/:repoName/contributors/:authToken', api.authContributors);
+APIrouter.get('/authorized/repo/:username/:repoName/commits/:authToken', api.authCommits);
 APIrouter.get('/authorized/repos/:authToken', api.authRepos);
 
 

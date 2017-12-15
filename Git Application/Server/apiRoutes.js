@@ -117,6 +117,27 @@ exports.authContributors = function(req, res) {
 
 }
 
+exports.authCommits = function(req, res) {
+  var options = {
+    method: 'GET',
+    url: 'https://api.github.com/repos/' + req.params.username + "/" +req.params.repoName + "/commits",
+    headers:
+     {
+       'postman-token': '63498122-80c7-2e9d-e8c3-93bb8baabfe0',
+       'cache-control': 'no-cache',
+        authorization: 'token '+ req.params.authToken,
+       'User-Agent': 'MarkNooneTCD'
+     }
+  };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    // console.log( body );
+    res.send(body);
+  });
+
+}
+
 exports.authRepos = function(req, res) {
   var options = {
     method: 'GET',
