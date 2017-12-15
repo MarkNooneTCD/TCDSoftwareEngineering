@@ -45,6 +45,7 @@ router.get('/', webEndpoints.index);
 router.get('/user', webEndpoints.profile);
 router.get('/repos', webEndpoints.repos);
 router.get('/repo', webEndpoints.repo);
+router.get('/connected-graph', webEndpoints.connectedUser);
 
 
 // Authentication Endpoints.

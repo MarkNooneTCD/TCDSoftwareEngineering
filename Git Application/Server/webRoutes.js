@@ -15,6 +15,10 @@ exports.repo = function(req, res) {
     res.sendfile('./public/repository/index.html');
 };
 
+exports.connectedUser = function(req, res) {
+    res.sendfile('./public/connected-user/index.html');
+};
+
 exports.githubCallback = function(req, res) {
     // res.sendfile('./public/repository/index.html');
 };
