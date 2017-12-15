@@ -46,7 +46,8 @@ router.get('/user', webEndpoints.profile);
 router.get('/repos', webEndpoints.repos);
 router.get('/repo', webEndpoints.repo);
 router.get('/connected-graph', webEndpoints.connectedUser);
-router.get('/commits', webEndpoints.commitFreq)
+router.get('/commits', webEndpoints.commitFreq);
+router.get('/commit-heatmap', webEndpoints.commitHeatMap);
 
 
 // Authentication Endpoints.

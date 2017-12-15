@@ -10,7 +10,7 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var data = [
+var customData = [
   {letter: "A", frequency: .08167},
   {letter: "B", frequency: .01492},
   {letter: "C", frequency: .02780},
@@ -24,7 +24,7 @@ var data = [
   {letter: "K", frequency: .00747},
   {letter: "L", frequency: .04025},
   {letter: "M", frequency: .02517},
-  {letter: "N", frequency: .06749},
+  {letter: "N", frequency: .0},
   {letter: "O", frequency: .07507},
   {letter: "P", frequency: .01929},
   {letter: "Q", frequency: .00098},
@@ -39,8 +39,8 @@ var data = [
   {letter: "Z", frequency: .00074}
 ];
 
-x.domain(data.map(function(d) { return d.letter; }));
-y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+x.domain(customData.map(function(d) { return d.letter; }));
+y.domain([0, d3.max(customData, function(d) { return d.frequency; })]);
 
 g.append("g")
     .attr("class", "axis axis--x")
@@ -58,7 +58,7 @@ g.append("g")
     .text("Frequency");
 
 g.selectAll(".bar")
-  .data(data)
+  .data(customData)
   .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.letter); })

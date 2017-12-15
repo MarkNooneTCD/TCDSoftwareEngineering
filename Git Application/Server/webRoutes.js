@@ -23,6 +23,10 @@ exports.commitFreq = function(req, res) {
     res.sendfile('./public/commit-percentage/index.html');
 };
 
+exports.commitHeatMap = function(req, res) {
+    res.sendfile('./public/commit-heat-map/index.html');
+};
+
 exports.githubCallback = function(req, res) {
     // res.sendfile('./public/repository/index.html');
 };

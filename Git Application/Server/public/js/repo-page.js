@@ -48,17 +48,19 @@ function showSubMenu(type){
   destroyChildren("sub-menu-contents");
 
   var subMenuContent = ""
-  var barChartIframe = '<iframe src="http://localhost:3000/commits" width="960" height="600"></iframe>'
+  var barChartIframe = '<iframe src="http://localhost:3000/commits" width="960" height="600"></iframe>';
+  var heatMapIframe = '<iframe src="http://localhost:3000/commit-heatmap" width="960" height="600"></iframe>';
 
-  subMenuContent = barChartIframe;
-
-  document.getElementById("sub-menu-contents").innerHTML = subMenuContent;
   if(type == "commit-percent"){
+    subMenuContent = barChartIframe;
+    document.getElementById("sub-menu-contents").innerHTML = subMenuContent;
     var button1 = document.getElementById("commit-percent");
     var button2 = document.getElementById("commit-freq");
     button1.style.color = "#3cdc64";
     button2.style.color = "#c0c0c0";
   } else {
+    subMenuContent = heatMapIframe;
+    document.getElementById("sub-menu-contents").innerHTML = subMenuContent;
     var button1 = document.getElementById("commit-freq");
     var button2 = document.getElementById("commit-percent");
     button1.style.color = "#3cdc64";
