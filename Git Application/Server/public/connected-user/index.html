@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git Grapher</title>
+    <meta name="description" content="Git Grapher">
+    <meta name="author" content="Mark Noone">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap and custom stylesheet imports -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/custom-d3.css">
+
+    <!-- Bootstrap javascript imports -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <!-- Font Awesome CDN -->
+    <script src="https://use.fontawesome.com/9bef4558e0.js"></script>
+
+  </head>
+
+<body>
+
+  <!-- Loading Icon -->
+  <div id="loading">
+    <div class="container-load-icon">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <div class="container" style="margin-top: 200px;">
+      <div class="row justify-content-center">
+        <h5 style="font-size: 16px; color: black;">Loading ...</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid main-nav" style="margin-bottom:350px;" id="app">
+
+    <div class="row">
+      <div class="col-lg-1 offset-lg-1" >
+        <a href="/" class="no-decoration"><h4 class="logo-text">Git Grapher</h4></a>
+      </div>
+      <div class="col-lg-4" style="margin-left: 3vw; margin-top: 1.5vh;">
+        <a class="nav-links-greyed" href="/user">My Profile</a>
+        <a class="nav-links-greyed" href="/repos">My Repositories</a>
+        <a class="nav-links-greyed" href="/connected-graph">My Connections</a>
+      </div>
+      <div class="col-lg-1 offset-lg-4" style=" margin-top: 1.5vh;">
+        <a class="nav-links-greyed" href="#">Log Out</a>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 6vh;">
+      <div class="col-lg-2 offset-lg-2">
+        <h3 class="page-header" id="profile-tag">My Connections</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" style="margin-top:50px;">
+
+      <!-- Profile Side Menu -->
+      <div class="col-lg-2 offset-lg-2" style="margin-right:4vw;">
+        <div class="container">
+          <div class="row justify-content-center" >
+            <div class="col-lg-12" >
+              <img class="profile-picture" id="github-profile-pic" src="https://dummyimage.com/600x400/000/fff" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Menu -->
+      <div class="col-lg-7">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <h5> <span id="github-username">Emma Barker</span> </h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2">
+              <p class="sub-section-header">Github Profile</p>
+            </div>
+            <div class="col-lg-8" style="margin-left:-45px;">
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">
+              <p class="sub-section-text" id="github-url">www.github.com/BarkerBarks</p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <p>Click a node to see who you are connected too!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="js/d3/connected-user.js"></script>
+
+</html>

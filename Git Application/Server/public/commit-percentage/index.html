@@ -1,0 +1,56 @@
+<html>
+  <head>
+
+    <title>Git Grapher</title>
+    <meta name="description" content="Git Grapher">
+    <meta name="author" content="Mark Noone">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap and custom stylesheet imports -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/custom-d3.css">
+
+    <!-- Bootstrap javascript imports -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <!-- Font Awesome CDN -->
+    <script src="https://use.fontawesome.com/9bef4558e0.js"></script>
+
+    <!-- D3 Framework Import -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Loading Icon -->
+    <div id="loading">
+      <div class="container-load-icon">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+      <div class="container" style="margin-top: 200px;">
+        <div class="row justify-content-center">
+          <h5 style="font-size: 16px; color: dark-grey; font-family: 'Open Sans', sans-serif;">Loading ...</h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="app">
+      <svg id="d3-barchart" width="960" height="500"></svg>
+      <script src="js/d3/repoBarChart.js"></script>
+    </div>
+  </body>
+</html>

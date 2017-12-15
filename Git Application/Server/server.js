@@ -27,6 +27,8 @@ APIrouter.get('/following/:username', api.following);
 // Authorized api calls only
 APIrouter.get('/authorized/user/:authToken', api.authUser);
 APIrouter.get('/authorized/repo/:username/:repoName/:authToken', api.authRepo);
+APIrouter.get('/authorized/repo/:username/:repoName/contributors/:authToken', api.authContributors);
+APIrouter.get('/authorized/repo/:username/:repoName/commits/:authToken', api.authCommits);
 APIrouter.get('/authorized/repos/:authToken', api.authRepos);
 
 
@@ -45,6 +47,9 @@ router.get('/', webEndpoints.index);
 router.get('/user', webEndpoints.profile);
 router.get('/repos', webEndpoints.repos);
 router.get('/repo', webEndpoints.repo);
+router.get('/connected-graph', webEndpoints.connectedUser);
+router.get('/commits', webEndpoints.commitFreq);
+router.get('/commit-heatmap', webEndpoints.commitHeatMap);
 
 
 // Authentication Endpoints.
